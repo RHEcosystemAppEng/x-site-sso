@@ -1,0 +1,14 @@
+<infinispan>
+    <cache-container>
+        <distributed-cache name="offlineClientSessions" mode="SYNC" start="EAGER">
+            <encoding media-type="application/x-protostream"/>
+            <backups>
+                <backup site="c2" strategy="SYNC">
+                    <take-offline min-wait="120000"/>
+                </backup>
+            </backups>
+            <transaction mode="NONE" locking="PESSIMISTIC"/>
+            <locking acquire-timeout="0" />
+        </distributed-cache>
+    </cache-container>
+</infinispan>
