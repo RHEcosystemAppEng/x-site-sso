@@ -25,3 +25,4 @@ cd /opt/eap/bin/
     - Site2 needs to be provisioned
     - Configuration seems to be ok, no error in pod for site1
     - The cache write is still not take place
+    - Investigate Cache and POD logs
