@@ -1,0 +1,9 @@
+kind: Cache
+metadata:
+  name: example-cache
+spec:
+  adminAuth:
+    secretName: basic-auth
+  clusterName: example-infinispan
+  name: cache1
+  template: <infinispan><cache-container><distributed-cache name="cache1"><encoding media-type="application/x-protostream"/><backups><backup site="c2" strategy="SYNC"><take-offline min-wait="120000"/></backup></backups></distributed-cache></cache-container></infinispan>

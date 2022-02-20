@@ -1,0 +1,28 @@
+apiVersion: infinispan.org/v1
+kind: Infinispan
+metadata:
+  name: example-infinispan
+spec:
+  replicas: 2
+  service:
+    type: DataGrid
+    sites:
+      local:
+        name: c2
+        expose:
+          type: LoadBalancer
+      locations:
+        - name: c1
+          url: openshift://api.ssosite1.fsi-partner.rhecoeng.com:6443
+          secretName: c1-token
+        - name: c2
+          url: openshift://api.ssosite2.fsi-partner.rhecoeng.com:6443
+          secretName: c2-token
+  logging:
+    categories:
+      org.infinispan: trace
+      org.jgroups: trace
+      org.jgroups.protocols.TCP: debug
+      org.jgroups.protocols.relay.RELAY2: debug
+  expose:
+    type: Route
