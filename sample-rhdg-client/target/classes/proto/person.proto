@@ -1,0 +1,17 @@
+// File name: person.proto
+// Generated from : com.redhat.apps.client.rhdgspringboot.LibraryInitializer
+
+syntax = "proto2";
+
+package demo;
+
+
+
+message PersonEntity {
+   
+   optional string id = 1;
+   
+   optional string name = 2;
+   
+   optional string email = 3;
+}

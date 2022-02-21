@@ -1,0 +1,13 @@
+com/redhat/apps/client/rhdgspringboot/entity/GenericEntity.class
+com/redhat/apps/client/rhdgspringboot/services/CacheHelper.class
+com/redhat/apps/client/rhdgspringboot/Controller.class
+com/redhat/apps/client/rhdgspringboot/RhdgSpringbootApplication.class
+com/redhat/apps/client/rhdgspringboot/entity/PersonEntity.class
+com/redhat/apps/client/rhdgspringboot/services/GenericCacheService.class
+com/redhat/apps/client/rhdgspringboot/entity/PersonEntity$___Marshaller_4085378c4b5a422334db28b3c61ebcad5f0b1f1d44c705d6eb16f36a087120d5.class
+com/redhat/apps/client/rhdgspringboot/services/PersonEntityCacheService.class
+com/redhat/apps/client/rhdgspringboot/GenericController.class
+com/redhat/apps/client/rhdgspringboot/entity/AbstractEntity.class
+com/redhat/apps/client/rhdgspringboot/LibraryInitializerImpl.class
+proto/person.proto
+com/redhat/apps/client/rhdgspringboot/LibraryInitializer.class
