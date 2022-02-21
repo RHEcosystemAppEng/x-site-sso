@@ -11,8 +11,8 @@ oc set volume dc/sso --add --name=jboss-cli -m /opt/eap/extensions -t configmap 
 oc set env dc/sso \
 -e "JAVA_OPTS_APPEND= \
 -Djboss.site.name=site1"
-oc rsh <<sso-pod>>
 oc set env dc/sso -e "JAVA_OPTS_APPEND= -Djboss.site.name=site1"
+oc rsh <<sso-pod>>
 ./add-user-keycloak.sh -r master -u admin -p password
 ./jboss-cli.sh --connect ':reload'
 
