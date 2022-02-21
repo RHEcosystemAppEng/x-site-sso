@@ -7,7 +7,7 @@ oc set volume dc/sso --add --name=truststore-secret -m /etc/truststore -t secret
 oc get dc
 oc set volume dc/sso --all
 oc create configmap jboss-cli --from-file=sso-extensions.cli
-oc set volume dc/sso --add --name=jboss-cli -m /opt/eap/extensions -t configmap --configmap-name=jboss-cli --default-mode='0755' --overwrite
+oc set volume dc/sso --add --name=jboss-cli -m /opt/eap/extensions -t configmap --configmap-name=jboss-cli --default-mode='0755' --overwrite # Issue in this line- Cannot find trusted certficate
 oc set env dc/sso \
 -e "JAVA_OPTS_APPEND= \
 -Djboss.site.name=site1"
@@ -23,6 +23,6 @@ cd /opt/eap/bin/
 
 - TODO
     - Site2 needs to be provisioned
-    - Configuration seems to be ok, no error in pod for site1
-    - The cache write is still not take place
+    - Configuration of cache is not ok - sso-extensions.cli needs to be modfied. 
+        - Add also for actionTokens, loginFailures, offlineClientSessions, offlineSessions, sessions, once the config is fixed. These will be same as for clientSession.
     - Investigate Cache and POD logs
