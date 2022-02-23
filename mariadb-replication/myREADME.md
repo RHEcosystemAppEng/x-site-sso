@@ -1,6 +1,6 @@
 - All all 3 DB instances
 ```
-sudo subscription-manager register --username mpaul@redhat.com --password Andromeda@22 --auto-attach
+sudo subscription-manager register --username mpaul@redhat.com --password <password> --auto-attach
 sudo subscription-manager config --rhsm.manage_repos=1
 sudo yum module install mariadb:10.3/galera
 sudo systemctl start mariadb
