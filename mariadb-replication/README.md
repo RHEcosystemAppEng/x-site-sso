@@ -26,7 +26,6 @@ sudo yum install python3-policycoreutils -y
 sudo vi /etc/my.cnf.d/galera.cnf
 ```
 
-```
 - Db1 Instance Configuration
 ```
 [mysqld]
@@ -34,19 +33,11 @@ binlog_format=ROW
 default-storage-engine=innodb
 innodb_autoinc_lock_mode=2
 bind-address=0.0.0.0
-
-# Galera Provider Configuration
 wsrep_on=1 
 wsrep_provider=/usr/lib64/galera-4/libgalera_smm.so
-
-# Galera Cluster Configuration
 wsrep_cluster_name="my_wsrep_cluster"
 wsrep_cluster_address="gcomm://10.1.0.98,10.1.0.36,10.2.0.121"
-
-# Galera Synchronization Configuration
 wsrep_sst_method=rsync
-
-# Galera Node Configuration
 wsrep_node_address="10.1.0.98"
 wsrep_node_name="db-0"
 ```
@@ -62,22 +53,13 @@ binlog_format=ROW
 default-storage-engine=innodb
 innodb_autoinc_lock_mode=2
 bind-address=0.0.0.0
-
-# Galera Provider Configuration
 wsrep_on=1 
 wsrep_provider=/usr/lib64/galera-4/libgalera_smm.so
-
-# Galera Cluster Configuration
 wsrep_cluster_name="my_wsrep_cluster"
 wsrep_cluster_address="gcomm://10.1.0.98,10.1.0.36,10.2.0.121"
-
-# Galera Synchronization Configuration
 wsrep_sst_method=rsync
-
-# Galera Node Configuration
 wsrep_node_address="10.1.0.36"
 wsrep_node_name="db-1"
-
 ```
 
 ```
@@ -86,19 +68,11 @@ binlog_format=ROW
 default-storage-engine=innodb
 innodb_autoinc_lock_mode=2
 bind-address=0.0.0.0
-
-# Galera Provider Configuration
 wsrep_on=1 
 wsrep_provider=/usr/lib64/galera-4/libgalera_smm.so
-
-# Galera Cluster Configuration
 wsrep_cluster_name="my_wsrep_cluster"
 wsrep_cluster_address="gcomm://10.1.0.98,10.1.0.36,10.2.0.121"
-
-# Galera Synchronization Configuration
 wsrep_sst_method=rsync
-
-# Galera Node Configuration
 wsrep_node_address="10.2.0.121"
 wsrep_node_name="db-2"
 ```
