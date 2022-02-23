@@ -13,7 +13,7 @@
             "template.openshift.io/documentation-url": "https://access.redhat.com/documentation/en/red-hat-single-sign-on/",
             "template.openshift.io/support-url": "https://access.redhat.com"
         },
-        "name": "sso75-ocp4-x509-https"
+        "name": "sso75-ocp4-x509-https-maria"
     },
     "labels": {
         "template": "sso75-ocp4-x509-https",
@@ -226,7 +226,7 @@
                             "from": {
                                 "kind": "ImageStreamTag",
                                 "namespace": "${IMAGE_STREAM_NAMESPACE}",
-                                "name": "sso75-openshift-rhel8:7.5"
+                                "name": "quay.io/mpaulgreen/sso75maria:1"
                             }
                         }
                     },
