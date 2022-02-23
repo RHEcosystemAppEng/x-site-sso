@@ -226,7 +226,7 @@
                             "from": {
                                 "kind": "ImageStreamTag",
                                 "namespace": "${IMAGE_STREAM_NAMESPACE}",
-                                "name": "quay.io/mpaulgreen/sso75maria:1"
+                                "name": "sso75maria:1"
                             }
                         }
                     },
