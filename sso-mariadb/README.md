@@ -1,10 +1,36 @@
-- Configuring mariadb with SSO
-```
-module add --name=org.mariadb --resources=/home/ec2-user/mariadb-java-client-2.7.3.jar --dependencies=javax.api,javax.resource.api
+- ***Configuring mariadb with SSO***
+    - DB Operatiions
+    ```
+    mysql -h localhost -uroot -predhat < mariadb_rhsso75_db_setup.sql
+    mysql -h localhost -uroot -predhat
+    show databases; // You should see the dbs - information_schema, mysql, performance_schema, rhsso74
+    quit;
+    mysql -h localhost -urhsso74 -predhat
+    show databases;
+    ```
 
-/subsystem=datasources/jdbc-driver=mariadb:add( driver-name=mariadb, driver-module-name=org.mariadb, driver-class-name=org.mariadb.jdbc.Driver, driver-xa-datasource-class-name=org.mariadb.jdbc.MariaDbDataSource )
+    - Build the sso image for maria db
+    ```
+    docker build . -t quay.io/mpaulgreen/sso75maria:4
+    docker push quay.io/mpaulgreen/sso75maria:4
+    ```
 
-/subsystem=datasources/data-source=KeycloakDS:remove()
+    - On worker node 
 
-/subsystem=datasources/data-source=KeycloakDS:add(jndi-name=java:jboss/datasources/KeycloakDS, enabled=true, use-java-context=true, connection-url=jdbc:mariadb://10.2.0.210:3306/rhsso74, driver-name=mariadb, user-name=rhsso74, password=redhat)
-```
+    ```
+    oc debug node/ip-10-0-200-198.us-west-2.compute.internal
+    chroot /host
+    podman pull quay.io/mpaulgreen/sso75maria:4
+    podman tag quay.io/mpaulgreen/sso75maria:4 image-registry.openshift-image-registry.svc:5000/openshift/sso75maria:1
+    podman push image-registry.openshift-image-registry.svc:5000/openshift/sso75maria:1
+    ```
+
+    - On OpenShift console
+    ```
+    oc new-app --template=sso75-ocp4-x509-https-maria
+    ```
+
+    - Update the template ```sso75-ocp4-x509-https-maria.json``` to include the new image
+
+
+
