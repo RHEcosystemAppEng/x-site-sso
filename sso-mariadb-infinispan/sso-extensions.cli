@@ -7,7 +7,7 @@ set DB_DRIVER=org.mariadb.jdbc.Driver
 set DB_XA_DRIVER=org.mariadb.jdbc.MariaDbDataSource
 set DB_JDBC_URL=jdbc:mariadb://10.1.0.98:3306/rhsso74
 set DB_EAP_MODULE=org.mariadb
-set CACHE_OWNERS_COUNT=2
+set env.CACHE_OWNERS_COUNT=2
 
 set FILE=/opt/eap/extensions/jdbc-driver.jar
 
