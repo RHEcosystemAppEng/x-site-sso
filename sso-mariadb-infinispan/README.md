@@ -14,7 +14,10 @@
     docker build . -t quay.io/mpaulgreen/sso75maria:4
     docker push quay.io/mpaulgreen/sso75maria:4
     ```
-
+    - Import the certificate in keystore
+    ```
+    keytool -importcert -file service-ca.crt -keystore truststore.jks
+    ```
     - On worker node 
 
     ```
