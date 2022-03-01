@@ -1,7 +1,7 @@
 <infinispan>
     <cache-container>
         <distributed-cache name="offlineClientSessions" mode="SYNC" start="EAGER">
-            <encoding media-type="application/x-protostream"/>
+            <encoding media-type="application/x-jboss-marshalling"/>
             <backups>
                 <backup site="c2" strategy="SYNC">
                     <take-offline min-wait="120000"/>
